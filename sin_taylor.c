@@ -1,29 +1,7 @@
 #include <stdio.h>
-#define PI 3.14
+#include "math_utils.h"   // import helper functions
 
-int factorial(int a){
-    int i;
-    int fac_a = 1;
-    for (i = 1; i <= a; i++){
-        fac_a = fac_a * i;
-    }
-    return fac_a;
-}
-
-float radian(float degree){
-    return degree * (PI / 180.0);
-}
-
-float power(float base, int pnum){
-    float presult = 1.0;
-    int i;
-    for (i = 0; i < pnum; i++){
-        presult *= base;
-    }
-    return presult;
-}
-
-int main(){
+int main() {
     int num;
     float ang;
     int i;
@@ -36,6 +14,6 @@ int main(){
         tay_sin = tay_sin + (power(-1, i) * (power(ang, 2*i+1) / factorial(2*i+1)));
     }
 
-    printf("%.6f\n", tay_sin);
+    printf("sin(%.2f) ≈ %.6f\n", ang, tay_sin);
     return 0;
 }
